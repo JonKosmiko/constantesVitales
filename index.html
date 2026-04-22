@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Monitor Constantes Vitales</title>
+    
+
+    <link rel="apple-touch-icon" href="icono-192.png">
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#000000">
+</head>
+
+<body>
+
+    <div id="alarmOverlay" class="alarm-overlay"></div>
+
+    <div class="pantallaPrincipal">
+        <div class="row">
+            <div class="canvas-area">
+                <div class="scale-layer"></div><canvas id="c0"></canvas>
+            </div>
+            <div class="data-area-container">
+                <div class="data-column color-green">
+                    <div class="label-group"><span class="label-main">HR</span><span class="label-sub">bpm</span></div>
+                    <div class="value-main" id="vHR">66</div>
+                </div>
+                <div class="data-column color-white" style="text-align: right;">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="canvas-area">
+                <div class="scale-layer"></div><canvas id="c1"></canvas>
+            </div>
+            <div class="data-area-container">
+                <div class="data-column color-yellow">
+                    <div class="label-group"><span class="label-main">SpO2</span><span class="label-sub">%</span></div>
+                    <div class="value-main" id="vSPO2">98</div>
+                </div>
+                <div class="data-column" style="text-align: right;">
+                    <div class="label-group"><span class="label-main">Pulse</span></div>
+                    <div class="value-main" id="vPulse" style="font-size: 2.5vw; color: #ffff22;">65</div>
+                    <div class="value-avg" style="margin-top:15px;">130 / 50</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="canvas-area">
+                <div class="scale-layer"></div><canvas id="c2"></canvas>
+            </div>
+            <div class="data-area-container">
+                <div class="data-column color-red">
+                    <div class="label-group"><span class="label-main">ABP</span><span class="label-sub">mmHg</span>
+                    </div>
+                    <div class="value-dual" id="vABP">113/84</div>
+                    <div class="value-avg" id="vABP_M">(93)</div>
+                </div>
+                <div class="data-column color-white" style="text-align: right;">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="canvas-area">
+                <div class="scale-layer"></div><canvas id="cPAP"></canvas>
+            </div>
+            <div class="data-area-container">
+                <div class="data-column color-ochre">
+                    <div class="label-group"><span class="label-main">PAP</span><span class="label-sub">mmHg</span>
+                    </div>
+                    <div class="value-dual" id="vPAP">20/10</div>
+                    <div class="value-avg" id="vPAP_M">(13)</div>
+                </div>
+                <div class="data-column" style="text-align: right;">
+                    <div class="label-group"><span class="label-main">Tperi</span></div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="border-bottom: none;">
+            <div class="canvas-area">
+                <div class="scale-layer"></div><canvas id="c3"></canvas>
+            </div>
+            <div class="data-area-container">
+                <div class="data-column color-white">
+                    <div class="label-group"><span class="label-main">etCO2</span><span class="label-sub">mmHg</span>
+                    </div>
+                    <div class="value-main" id="vCO2">35</div>
+                </div>
+                <div class="data-column color-white" style="text-align: right;">
+                    <div class="label-group"><span class="label-main">RR</span><span class="label-sub">awRR</span></div>
+                    <div class="value-main" style="font-size: 2.5vw;">12</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="barraAbajo">
+        <div class="botonesAbajo">Silence</div>
+        <div class="botonesAbajo">NIBP</div>
+        <div class="botonesAbajo">Zero ART</div>
+        <div class="botonesAbajo">Trends</div>
+        <div class="botonesAbajo">Main Menu</div>
+    </div>
+
+    
+    <script src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js');
+      }
+    </script>
+</body>
+
+</html>

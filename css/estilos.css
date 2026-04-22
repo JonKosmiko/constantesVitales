@@ -1,0 +1,231 @@
+:root {
+    --colorFondo: #1d1d20;
+    --color: white;
+    --infoPaciente_colorFondo: antiquewhite;
+    --infoPaciente_color: black;
+    --barraAbajo_colorFondo: 2c2c36;
+
+    --tamanoFuente_titulos: 38px;
+    --tamanoFuente_numeros: 100px;
+
+    --pulsaciones_curva_color: #22ff22;
+    --sp02_curva_color: #ffff22;
+    --abp_curva_color: #ff3333;
+    --pap_curva_color: #ccaa44;
+    --c02_curva_color: #ffffff;
+
+    --fuente: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--colorFondo);
+    color: var(--color);
+    font-family: var(--fuente);
+
+    overflow: hidden;
+    user-select: none;
+}
+
+
+.pantallaPrincipal {
+    height: 90vh;
+    padding: 5px 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    position: relative;
+
+    border-bottom: 1px solid #222;
+}
+
+/* === CURVAS === */
+.canvas-area {
+    height: 95%;
+
+    flex: 0 0 70%;
+
+    position: relative;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.scale-layer {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+.hline {
+    width: 100%;
+    height: 1px;
+
+    position: absolute;
+    left: 0;
+
+    background-color: #1a1a1a;
+}
+
+.scale-label {
+    position: absolute;
+    right: 5px;
+
+    font-size: 0.6rem;
+    color: #444;
+
+    transform: translateY(-50%);
+}
+
+/* === DATOS === */
+.data-area-container {
+    padding-left: 10px;
+
+    flex: 0 0 30%;
+    display: flex;
+    justify-content: space-between;
+
+    border-left: 1px solid #1a1a1a;
+
+    box-sizing: border-box;
+}
+
+.data-column {
+    padding: 0 5px;
+
+    display: flex;
+    flex: 0 0 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-group {
+    margin-bottom: 2px;
+
+    font-weight: bold;
+}
+
+.label-main {
+    font-size: var(--tamanoFuente_titulos);
+    letter-spacing: 1px;
+}
+
+.label-sub {
+    font-size: 0.6vw;
+    margin-left: 5px;
+
+    opacity: 0.6;
+}
+
+.value-main {
+    font-size: var(--tamanoFuente_numeros);
+    font-weight: bold;
+    line-height: 0.85;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.value-dual {
+    font-size: 2.5vw;
+    font-weight: bold;
+    line-height: 0.85;
+    white-space: nowrap;
+}
+
+.value-avg {
+    font-size: 1.2vw;
+    color: #aaa;
+    margin-top: 2px;
+}
+
+.color-green {
+    color: var(--pulsaciones_curva_color);
+}
+
+.color-yellow {
+    color: var(--sp02_curva_color);
+}
+
+.color-red {
+    color: var(--abp_curva_color);
+}
+
+.color-ochre {
+    color: var(--pap_curva_color);
+}
+
+.color-white {
+    color: var(--c02_curva_color);
+}
+
+.barraAbajo {
+    height: 8vh;
+
+    display: flex;
+    padding: 4px;
+    gap: 4px;
+
+    background-color: var(--barraAbajo_colorFondo);
+}
+
+.botonesAbajo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    background-color: var(--barraAbajo_colorFondo);
+    border: 1px solid #444;
+    color: #aaa;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+}
+
+/* Capa de alarma roja */
+.alarm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.438); /* Rojo semitransparente */
+    pointer-events: none; /* Para que no bloquee los clics */
+    z-index: 9999;
+    display: none; /* Escondido por defecto */
+}
+
+/* Animación de parpadeo */
+@keyframes parpadeoRojo {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.alarma-activa {
+    display: block;
+    animation: parpadeoRojo 0.8s infinite;
+}
