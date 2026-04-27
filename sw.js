@@ -1,4 +1,4 @@
-const CACHE_NAME = 'monitor-v1';
+const CACHE_NAME = 'monitor-v2';
 const ASSETS = [
   './',
   './index.html',
