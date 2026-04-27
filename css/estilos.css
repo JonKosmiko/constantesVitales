@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
     --colorFondo: #1d1d20;
     --color: white;
@@ -14,7 +28,7 @@
     --pap_curva_color: #ccaa44;
     --c02_curva_color: #ffffff;
 
-    --fuente: Roboto, Arial, sans-serif;
+    --fuente: "Roboto", Arial, sans-serif;
 }
 
 body {

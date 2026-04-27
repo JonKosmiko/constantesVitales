@@ -1,9 +1,11 @@
-const CACHE_NAME = 'monitor-v2';
+const CACHE_NAME = 'monitor-v3';
 const ASSETS = [
   './',
   './index.html',
   './css/estilos.css',
-  './script.js'
+  './script.js',
+  './fonts/Roboto-Bold.ttf',
+  "./fonts/Roboto-Regular.ttf"
 ];
 
 // INSTALA Y GUARDA EN CACHÉ
